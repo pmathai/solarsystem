@@ -36,7 +36,7 @@ GLfloat drag_x_origin, drag_y_origin;
 int dragging = 0;
 
 //frames counter
-int frameCount = 0, FPS = 0; 
+int frameCount = 0, FPS = 0;
 
 long previousTime = 0, currentTime = 0;;
 
@@ -120,60 +120,60 @@ void light(void){
 
 void display (void) {
     glClearColor (0.0,0.0,0.0,1.0);
-    
+
 //    glViewport(0,0,windowX,windowY);
     glLoadIdentity();
     //draw main screen
     glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
- 
-    glLoadIdentity(); 
-   
+
+    glLoadIdentity();
+
 //    light();
     camera();
     if(!superNovaBOOM)
     {
-	//draw floor 
-	renderFloor();
-	//drawthe Scene
-	drawScene(0);
+    	//draw floor
+    	renderFloor();
+    	//drawthe Scene
+    	drawScene(0);
     }
     else
     {
-	superNovaSize += .01;
-	superNova(superNovaSize);
+    	superNovaSize += .01;
+    	superNova(superNovaSize);
     }
 
 
 
-    
+
     glutSwapBuffers();
 }
 
 void reshape (int w, int h) {
-  
+
     printf("reshape called\n");
     windowX = w;
-    windowY = h;  
+    windowY = h;
 
     glMatrixMode (GL_PROJECTION);
     glLoadIdentity ();
     gluPerspective (45, (GLfloat)w / (GLfloat)h, 1, 1000.0);
     glMatrixMode (GL_MODELVIEW);
- 
+
 }
 
 void keyboard (unsigned char key, int x, int y) {
-    
+
     printf("xrotation = %f and yrotation = %f\n", x_rotation,y_rotation);
-    printf("x_position = %f and y_position = %f and z_position = %f\n", x_position, y_position, z_position); 
+    printf("x_position = %f and y_position = %f and z_position = %f\n", x_position, y_position, z_position);
     switch(key){
 	//s
 	case 's':
-	
+
 	    printf("move back\n");
 	    GLfloat xrotrad, yrotrad;
 	    yrotrad = (y_rotation / 180 * 3.141592654f);
-	    xrotrad = (x_rotation / 180 * 3.141592654f); 
+	    xrotrad = (x_rotation / 180 * 3.141592654f);
 //	    if(y_rotation < 180){
 		x_position -= GLfloat(sin(yrotrad/2));
 		z_position += GLfloat(cos(yrotrad/2)) ;
@@ -191,7 +191,7 @@ void keyboard (unsigned char key, int x, int y) {
 
 	    printf("move forward\n");
 	    yrotrad = (y_rotation / 180 * 3.141592654f);
-	    xrotrad = (x_rotation / 180 * 3.141592654f); 
+	    xrotrad = (x_rotation / 180 * 3.141592654f);
 //	    if(y_rotation < 180){
 		x_position += GLfloat(sin(yrotrad/2)) ;
 		z_position -= GLfloat(cos(yrotrad/2)) ;
@@ -203,7 +203,7 @@ void keyboard (unsigned char key, int x, int y) {
 //
 //	    }
 	    break;
-	//d 
+	//d
 	case 'd':
 	    printf("move right\n");
 /*	    y_rotation += 1;
@@ -288,7 +288,7 @@ void keyboard (unsigned char key, int x, int y) {
         if (specular==false)
         {
             specular = true;
-            glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, 
+            glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR,
 whiteSpecularMaterial);
             glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, mShininess);
         }
@@ -296,7 +296,7 @@ whiteSpecularMaterial);
         {
             specular = false;
             glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, blankMaterial);
-            glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, 
+            glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS,
 blankMaterial);
         }
 	    break;
@@ -337,38 +337,35 @@ blankMaterial);
 
 void mouse(int button, int state, int x, int y){
     if(button == 3)
-	keyboard('w',1,1);
+	   keyboard('w',1,1);
     if(button == 4)
-	keyboard('s',1,1);
+	   keyboard('s',1,1);
 
     if(button == GLUT_RIGHT_BUTTON){
-	superNovaBOOM=true;
+        superNovaBOOM=true;
     }
 
     if(button == GLUT_LEFT_BUTTON)// && state == GLUT_DOWN)
     {
-	dragging = 1;
+        dragging = 1;
         drag_x_origin = x;
         drag_y_origin = y;
 
     }else{
-	dragging = 0;
+        dragging = 0;
     }
 }
 
 void mouseMotion(int x, int y){
     printf("MOUSE: xrotation = %f and yrotation = %f\n", x_rotation,y_rotation);
-    printf("MOUSE x_position = %f and y_position = %f and z_position = %f\n", x_position, y_position, z_position); 
-    if(!mouseDisable){ 
-	if(dragging){
-	    x_rotation += (y - drag_y_origin)*0.3;
-	    y_rotation += (x - drag_x_origin)*0.3;
-	    drag_x_origin = x;
-	    drag_y_origin = y;
-     
-    
-
-	}
+    printf("MOUSE x_position = %f and y_position = %f and z_position = %f\n", x_position, y_position, z_position);
+    if(!mouseDisable){
+        if(dragging){
+            x_rotation += (y - drag_y_origin)*0.3;
+            y_rotation += (x - drag_x_origin)*0.3;
+            drag_x_origin = x;
+            drag_y_origin = y;
+        }
     }
 }
 
@@ -394,12 +391,12 @@ int main (int argc, char **argv) {
 
     //keyboard functions
     glutKeyboardFunc(keyboard);
-    
+
     //mouse functions
     glutMouseFunc(mouse);
     glutMotionFunc(mouseMotion);
     adjustPlanetsUp();
-    //start in wireframe 
+    //start in wireframe
 //    glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
     glutReshapeFunc(reshape);
     glutMainLoop ();

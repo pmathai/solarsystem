@@ -45,9 +45,7 @@ static float uranusAngle = 0;
 
 
 void drawScene(float blastRadius);
-
 void drawScene2(float blastRadius);
-
 void adjustPlanetsUp(void);
 void adjustPlanetsDown(void);
 void renderFloor(void);
