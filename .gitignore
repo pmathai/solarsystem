@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # Created by https://www.gitignore.io
 
 ### C++ ###
+=======
+>>>>>>> bdc53c40c6fb645c8816e04414338f82ba41b778
 # Compiled Object files
 *.slo
 *.lo
@@ -29,7 +32,10 @@
 *.exe
 *.out
 *.app
+<<<<<<< HEAD
 
 #Editor Swap Files
 *.swp
 
+=======
+>>>>>>> bdc53c40c6fb645c8816e04414338f82ba41b778

@@ -1,9 +1,10 @@
+NOTE:  did this project in college.  and i don't completely recall why i did things in certain ways. 
 
 Scene Description
     A representation of our solar system.  All the currently acknowledged planets and some of their moons.  You'll have to zoom out to see neptune and uranus and saturn sometimes. The planets orbit at their own pace.  Earth's moon has it's own orbit.  Mars and Jupitor also has some moons.  Also shows our sun in a supernova.  
 
 
-PROJECT4 NOTES
+SOLARSYSTEM NOTES
 
 f = toggle fog
 l = lighting toggle
@@ -16,9 +17,10 @@ the earth also is a light source that moves.  emits a blue light.  you can see t
 
 all the planets and sun have materials.
 
-NOTE!!!!!!!!!!!!!!!!!!!!!!11
+NOTE!!!!!!!!!!!!!!!!!!!!!
 project was created on an ubuntu machine and it requires SOIL to compile.
-
+For DEBIAN:
+	use 'sudo apt-get install freeglut3 freeglut3-dev libglew1.10 libglu1-mesa libglu1-mesa-dev libgl1-mesa-glx libgl1-mesa-dev libsoil-dev' for libs
 
 
 Controls
@@ -50,5 +52,4 @@ action animation = supernova started with a right mouse button click
 
 
 TO RUN:
-    use the makefile.  only set up for ubuntu though.  
-
+    use the makefile.  
