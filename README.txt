@@ -53,3 +53,5 @@ action animation = supernova started with a right mouse button click
 
 TO RUN:
     use the makefile.  
+    make
+    ./solarsystem
